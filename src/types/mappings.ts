@@ -20,6 +20,8 @@ export type ClarityToTS<T extends ClarityType> = T extends "uint128"
   ? boolean
   : T extends "principal"
   ? string
+  : T extends "trait_reference"
+  ? string
   : T extends { "string-ascii": any }
   ? string
   : T extends { "string-utf8": any }
