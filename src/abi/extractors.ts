@@ -6,6 +6,12 @@ import type { ClarityType } from "../types/composites";
  * Type extraction utilities for contract ABIs
  */
 
+// Utility type to convert kebab-case to camelCase
+type ToCamelCase<S extends string> =
+  S extends `${infer P1}-${infer P2}${infer P3}`
+    ? `${P1}${Capitalize<ToCamelCase<`${P2}${P3}`>>}`
+    : S;
+
 export type ExtractFunctionNames<
   C extends ClarityContract,
   Access extends FunctionAccess = FunctionAccess
@@ -23,7 +29,7 @@ export type ExtractFunctionArgs<
   args: infer Args extends ReadonlyArray<{ name: string; type: any }>;
 }
   ? {
-      [K in Args[number]["name"]]: ClarityToTS<
+      [K in Args[number]["name"] as ToCamelCase<K>]: ClarityToTS<
         Extract<Args[number], { name: K }>["type"]
       >;
     }
