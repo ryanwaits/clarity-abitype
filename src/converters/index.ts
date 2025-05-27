@@ -54,6 +54,17 @@ export function jsToClarity(type: ClarityType, value: unknown): unknown {
     return value;
   }
 
+  if (type === "trait_reference") {
+    if (!isPrincipal(value)) {
+      throw new ClarityConversionError(
+        "Invalid trait_reference value",
+        type,
+        value
+      );
+    }
+    return value;
+  }
+
   if (typeof type === "object" && "string-ascii" in type) {
     if (!isString(value)) {
       throw new ClarityConversionError(
