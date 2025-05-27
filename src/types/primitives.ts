@@ -9,6 +9,8 @@ export type ClarityBool = "bool";
 
 export type ClarityPrincipal = "principal";
 
+export type ClarityTraitReference = "trait_reference";
+
 export type ClarityStringAscii<L extends number = number> = {
   "string-ascii": {
     length: L;
@@ -32,6 +34,7 @@ export type ClarityPrimitiveType =
   | ClarityInt128
   | ClarityBool
   | ClarityPrincipal
+  | ClarityTraitReference
   | ClarityStringAscii
   | ClarityStringUtf8
   | ClarityBuffer;
