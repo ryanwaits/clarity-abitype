@@ -1,4 +1,4 @@
-# clarity-abitype
+# clarity-types
 
 TypeScript type definitions and utilities for Clarity smart contract ABIs. Provides compile-time type inference and runtime validation for Clarity contracts on the Stacks blockchain.
 
@@ -14,17 +14,17 @@ TypeScript type definitions and utilities for Clarity smart contract ABIs. Provi
 ## Installation
 
 ```bash
-npm install clarity-abitype
+npm install clarity-types
 # or
-yarn add clarity-abitype
+yarn add clarity-types
 # or
-bun add clarity-abitype
+bun add clarity-types
 ```
 
 ## Quick Start
 
 ```typescript
-import type { ClarityContract, ExtractFunctionArgs } from "clarity-abitype";
+import type { ClarityContract, ExtractFunctionArgs } from "clarity-types";
 
 // Define your contract ABI with const assertion
 const contractAbi = {
@@ -95,7 +95,7 @@ type ReadOnlyFunctions = ExtractReadOnlyFunctions<Contract>;
 ### Type Guards
 
 ```typescript
-import { isUint128, isPrincipal, isOkResponse } from "clarity-abitype";
+import { isUint128, isPrincipal, isOkResponse } from "clarity-types";
 
 // Validate values at runtime
 if (isUint128(value)) {
@@ -116,7 +116,7 @@ if (isOkResponse(result)) {
 ### Value Conversion
 
 ```typescript
-import { jsToClarity, validateArgs } from "clarity-abitype";
+import { jsToClarity, validateArgs } from "clarity-types";
 
 // Validate and convert JS values to Clarity types
 const validated = jsToClarity("uint128", 123n); // Returns 123n or throws
@@ -182,7 +182,7 @@ This library provides types for generating parameters compatible with @stacks/co
 
 ```typescript
 import { openContractCall, callReadOnlyFunction } from "@stacks/connect";
-import type { ContractInterface } from "clarity-abitype";
+import type { ContractInterface } from "clarity-types";
 
 // Generated contract interface (usually created by @stacks/cli)
 const contract: ContractInterface<typeof contractAbi> = {

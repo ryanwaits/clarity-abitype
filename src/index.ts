@@ -1,5 +1,5 @@
 /**
- * clarity-abitype
+ * clarity-types
  * TypeScript type definitions and utilities for Clarity smart contract ABIs
  */
 

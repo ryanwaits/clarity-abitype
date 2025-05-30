@@ -9,7 +9,7 @@ import type {
 } from "../src";
 
 /**
- * Type-level tests for clarity-abitype
+ * Type-level tests for clarity-types
  */
 
 describe("Type Inference", () => {
